@@ -62,6 +62,7 @@ const preventDefault = (rawEvent: HandleScrollEvent): boolean => {
   // Comment out below to see if removing it fixes issues experienced under iOS 12 with scrolling
   // Do not prevent if the event has more than one touch (usually meaning this is a multi touch gesture like pinch to zoom)
   // if (e.touches.length > 1) return true;
+  console.log('e.touches:', e.touches);
 
   if (e.preventDefault) e.preventDefault();
 
