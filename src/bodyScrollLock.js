@@ -55,7 +55,8 @@ const preventDefault = (rawEvent: HandleScrollEvent): boolean => {
   // Recall that we do document.addEventListener('touchmove', preventDefault, { passive: false })
   // in disableBodyScroll - so if we provide this opportunity to allowTouchMove, then
   // the touchmove event on document will break.
-  if (allowTouchMove(e.target)) {
+  console.log('e.scale:', e.scale);
+  if (allowTouchMove(e.target) && !e.scale > 1) {
     return true;
   }
 
