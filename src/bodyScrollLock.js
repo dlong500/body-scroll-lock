@@ -167,6 +167,10 @@ export const disableBodyScroll = (targetElement: any, options?: BodyScrollOption
         }
       };
       targetElement.ontouchmove = (event: HandleScrollEvent) => {
+        if (event.scale > 1) {
+          console.log('local-scale:', event.scale);
+          if (event.preventDefault) event.preventDefault();
+        }
         if (event.targetTouches.length === 1) {
           // detect single touch
           handleScroll(event, targetElement);
